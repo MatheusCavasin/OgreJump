@@ -15,6 +15,17 @@
 		88261AB3240E99F200C2DB78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88261AB1240E99F200C2DB78 /* Main.storyboard */; };
 		88261AB5240E99F600C2DB78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88261AB4240E99F600C2DB78 /* Assets.xcassets */; };
 		88261AB8240E99F600C2DB78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88261AB6240E99F600C2DB78 /* LaunchScreen.storyboard */; };
+		88261AC1240E9E5200C2DB78 /* WallBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261AC0240E9E5200C2DB78 /* WallBackground.swift */; };
+		88261AC3240E9F5E00C2DB78 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261AC2240E9F5E00C2DB78 /* GameObject.swift */; };
+		88261AC7240EA11E00C2DB78 /* Wall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 88261AC5240EA11E00C2DB78 /* Wall.sks */; };
+		88261AC8240EA11E00C2DB78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88261AC6240EA11E00C2DB78 /* Assets.xcassets */; };
+		88261ACC240F129600C2DB78 /* BodyMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261ACB240F129600C2DB78 /* BodyMasks.swift */; };
+		88261ACE240F1EBF00C2DB78 /* WalkingPlayer.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 88261ACD240F1EBF00C2DB78 /* WalkingPlayer.atlas */; };
+		88261AD0240F38E300C2DB78 /* Running.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 88261ACF240F38E300C2DB78 /* Running.atlas */; };
+		88261AD2240F3A3400C2DB78 /* JumpLoop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 88261AD1240F3A3300C2DB78 /* JumpLoop.atlas */; };
+		88261AD7240F461A00C2DB78 /* SlashinginTheAir.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 88261AD6240F461A00C2DB78 /* SlashinginTheAir.atlas */; };
+		88261ADA240FCF4100C2DB78 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261AD9240FCF4100C2DB78 /* Player.swift */; };
+		88261ADD24113EA400C2DB78 /* GameConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261ADC24113EA400C2DB78 /* GameConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +39,17 @@
 		88261AB4240E99F600C2DB78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88261AB7240E99F600C2DB78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88261AB9240E99F600C2DB78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88261AC0240E9E5200C2DB78 /* WallBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallBackground.swift; sourceTree = "<group>"; };
+		88261AC2240E9F5E00C2DB78 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		88261AC5240EA11E00C2DB78 /* Wall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Wall.sks; sourceTree = "<group>"; };
+		88261AC6240EA11E00C2DB78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88261ACB240F129600C2DB78 /* BodyMasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMasks.swift; sourceTree = "<group>"; };
+		88261ACD240F1EBF00C2DB78 /* WalkingPlayer.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = WalkingPlayer.atlas; sourceTree = "<group>"; };
+		88261ACF240F38E300C2DB78 /* Running.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Running.atlas; sourceTree = "<group>"; };
+		88261AD1240F3A3300C2DB78 /* JumpLoop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = JumpLoop.atlas; sourceTree = "<group>"; };
+		88261AD6240F461A00C2DB78 /* SlashinginTheAir.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SlashinginTheAir.atlas; sourceTree = "<group>"; };
+		88261AD9240FCF4100C2DB78 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		88261ADC24113EA400C2DB78 /* GameConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +82,52 @@
 		88261AA6240E99F200C2DB78 /* OgreJump */ = {
 			isa = PBXGroup;
 			children = (
+				88261ADB24113E8500C2DB78 /* Model */,
+				88261AC4240EA0EA00C2DB78 /* Tiles */,
+				88261AD8240FCDCA00C2DB78 /* GameElements */,
 				88261AA7240E99F200C2DB78 /* AppDelegate.swift */,
-				88261AA9240E99F200C2DB78 /* GameScene.sks */,
-				88261AAB240E99F200C2DB78 /* Actions.sks */,
 				88261AAD240E99F200C2DB78 /* GameScene.swift */,
 				88261AAF240E99F200C2DB78 /* GameViewController.swift */,
 				88261AB1240E99F200C2DB78 /* Main.storyboard */,
+				88261AA9240E99F200C2DB78 /* GameScene.sks */,
+				88261AAB240E99F200C2DB78 /* Actions.sks */,
+				88261AD6240F461A00C2DB78 /* SlashinginTheAir.atlas */,
+				88261AD1240F3A3300C2DB78 /* JumpLoop.atlas */,
+				88261ACF240F38E300C2DB78 /* Running.atlas */,
+				88261ACD240F1EBF00C2DB78 /* WalkingPlayer.atlas */,
 				88261AB4240E99F600C2DB78 /* Assets.xcassets */,
 				88261AB6240E99F600C2DB78 /* LaunchScreen.storyboard */,
 				88261AB9240E99F600C2DB78 /* Info.plist */,
+				88261ACB240F129600C2DB78 /* BodyMasks.swift */,
 			);
 			path = OgreJump;
+			sourceTree = "<group>";
+		};
+		88261AC4240EA0EA00C2DB78 /* Tiles */ = {
+			isa = PBXGroup;
+			children = (
+				88261AC5240EA11E00C2DB78 /* Wall.sks */,
+				88261AC6240EA11E00C2DB78 /* Assets.xcassets */,
+			);
+			path = Tiles;
+			sourceTree = "<group>";
+		};
+		88261AD8240FCDCA00C2DB78 /* GameElements */ = {
+			isa = PBXGroup;
+			children = (
+				88261AC0240E9E5200C2DB78 /* WallBackground.swift */,
+				88261AD9240FCF4100C2DB78 /* Player.swift */,
+			);
+			path = GameElements;
+			sourceTree = "<group>";
+		};
+		88261ADB24113E8500C2DB78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88261AC2240E9F5E00C2DB78 /* GameObject.swift */,
+				88261ADC24113EA400C2DB78 /* GameConfig.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,8 +190,14 @@
 			files = (
 				88261AB3240E99F200C2DB78 /* Main.storyboard in Resources */,
 				88261AAA240E99F200C2DB78 /* GameScene.sks in Resources */,
+				88261AD2240F3A3400C2DB78 /* JumpLoop.atlas in Resources */,
 				88261AB5240E99F600C2DB78 /* Assets.xcassets in Resources */,
+				88261AC7240EA11E00C2DB78 /* Wall.sks in Resources */,
+				88261AC8240EA11E00C2DB78 /* Assets.xcassets in Resources */,
+				88261ACE240F1EBF00C2DB78 /* WalkingPlayer.atlas in Resources */,
 				88261AB8240E99F600C2DB78 /* LaunchScreen.storyboard in Resources */,
+				88261AD7240F461A00C2DB78 /* SlashinginTheAir.atlas in Resources */,
+				88261AD0240F38E300C2DB78 /* Running.atlas in Resources */,
 				88261AAC240E99F200C2DB78 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +212,11 @@
 				88261AAE240E99F200C2DB78 /* GameScene.swift in Sources */,
 				88261AB0240E99F200C2DB78 /* GameViewController.swift in Sources */,
 				88261AA8240E99F200C2DB78 /* AppDelegate.swift in Sources */,
+				88261ADD24113EA400C2DB78 /* GameConfig.swift in Sources */,
+				88261ACC240F129600C2DB78 /* BodyMasks.swift in Sources */,
+				88261ADA240FCF4100C2DB78 /* Player.swift in Sources */,
+				88261AC1240E9E5200C2DB78 /* WallBackground.swift in Sources */,
+				88261AC3240E9F5E00C2DB78 /* GameObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

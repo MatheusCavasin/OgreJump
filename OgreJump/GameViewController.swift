@@ -12,6 +12,8 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    var gameScene: GameScene?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +22,7 @@ class GameViewController: UIViewController {
             if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
-                
+                gameScene = scene as! GameScene
                 // Present the scene
                 view.presentScene(scene)
             }
@@ -30,6 +32,7 @@ class GameViewController: UIViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
+//        gameScene?.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.9019607843, blue: 0.8470588235, alpha: 1)
     }
 
     override var shouldAutorotate: Bool {
