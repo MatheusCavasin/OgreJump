@@ -28,51 +28,37 @@ class Player: SKSpriteNode {
         
         if control == 0 {
             jump = true
-            self.zRotation = CGFloat(0)
-            animatePlayer(direction: -1.0)
-            let moveX = SKAction.moveTo(x: CGFloat(-180), duration: 0.50)
-            let moveYUp = SKAction.moveTo(y: CGFloat(-200), duration: 0.25)
-            moveYUp.timingMode = .easeOut
-            let moveYDown = SKAction.moveTo(y: CGFloat(-300), duration: 0.25)
-            moveYDown.timingMode = .easeIn
-            let sequence = SKAction.sequence([moveYUp, moveYDown])
-            let group = SKAction.group([moveX, sequence])
-            self.run(group){
+            self.zRotation = CGFloat(GameConfig.zStandRotation)
+            animatePlayer(direction: GameConfig.left)
+            self.run(jumpAnimation(x: GameConfig.xLeftPosition)){
                 self.jump = false
-                self.zRotation = CGFloat(-70)
-                self.animatePlayer(direction: -1.0)
+                self.zRotation = CGFloat(GameConfig.zLeftRotation)
+                self.animatePlayer(direction: GameConfig.left)
             }
             control = 1
         } else if control == 1 {
             jump = true
-            self.zRotation = CGFloat(0)
-            animatePlayer(direction: 1.0)
-            let moveX = SKAction.moveTo(x: CGFloat(180), duration: 0.50)
-            let moveYUp = SKAction.moveTo(y: CGFloat(-200), duration: 0.25)
-            moveYUp.timingMode = .easeOut
-            let moveYDown = SKAction.moveTo(y: CGFloat(-300), duration: 0.25)
-            moveYDown.timingMode = .easeIn
-            let sequence = SKAction.sequence([moveYUp, moveYDown])
-            let group = SKAction.group([moveX, sequence])
-            self.run(group){
+            self.zRotation = CGFloat(GameConfig.zStandRotation)
+            animatePlayer(direction: GameConfig.right)
+            self.run(jumpAnimation(x: GameConfig.xRightPosition)){
                 self.jump = false
-                self.zRotation = CGFloat(70)
-                self.animatePlayer(direction: 1.0)
+                self.zRotation = CGFloat(GameConfig.right)
+                self.animatePlayer(direction: GameConfig.right)
             }
-            
             control = 0
         }
     }
     
     
-    func jumpAnimation(x: CGFloat, yUp: CGFloat) {
-        let moveX = SKAction.moveTo(x: CGFloat(180), duration: 0.50)
-        let moveYUp = SKAction.moveTo(y: CGFloat(-200), duration: 0.25)
+    func jumpAnimation(x: CGFloat) -> SKAction {
+        let moveX = SKAction.moveTo(x: x, duration: 0.50)
+        let moveYUp = SKAction.moveTo(y: GameConfig.yUpPosition, duration: 0.25)
         moveYUp.timingMode = .easeOut
-        let moveYDown = SKAction.moveTo(y: CGFloat(-300), duration: 0.25)
+        let moveYDown = SKAction.moveTo(y: GameConfig.yPosition, duration: 0.25)
         moveYDown.timingMode = .easeIn
         let sequence = SKAction.sequence([moveYUp, moveYDown])
         let group = SKAction.group([moveX, sequence])
+        return group
     }
     
     
@@ -89,7 +75,7 @@ class Player: SKSpriteNode {
         var walkFrames: [SKTexture] = []
         var jumpFrames: [SKTexture] = []
         let numImagesWalk = WalkAnimatedAtlas.textureNames.count
-        print(JumpAnimatedAtlas)
+//        print(JumpAnimatedAtlas)
         
         for i in 0...(numImagesWalk - 1) {
             if i < 10 {
@@ -98,7 +84,7 @@ class Player: SKSpriteNode {
                 if i < 10 {
                     let PlayerTextureName = "0_Ogre_Slashing%20in%20The%20Air_00\(i)"
                     jumpFrames.append(JumpAnimatedAtlas.textureNamed(PlayerTextureName))
-                    print(jumpFrames)
+//                    print(jumpFrames)
                 }
             } else {
                 var PlayerTextureName = "0_Ogre_Walking_0\(i)"

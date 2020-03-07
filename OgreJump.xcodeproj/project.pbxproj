@@ -26,6 +26,9 @@
 		88261AD7240F461A00C2DB78 /* SlashinginTheAir.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 88261AD6240F461A00C2DB78 /* SlashinginTheAir.atlas */; };
 		88261ADA240FCF4100C2DB78 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261AD9240FCF4100C2DB78 /* Player.swift */; };
 		88261ADD24113EA400C2DB78 /* GameConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261ADC24113EA400C2DB78 /* GameConfig.swift */; };
+		88261AE12411F2BE00C2DB78 /* BatEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261AE02411F2BE00C2DB78 /* BatEnemy.swift */; };
+		88261AE52411F9DE00C2DB78 /* bat.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 88261AE42411F9DE00C2DB78 /* bat.atlas */; };
+		88261AE72412811100C2DB78 /* SpawningBat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261AE62412811100C2DB78 /* SpawningBat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		88261AD6240F461A00C2DB78 /* SlashinginTheAir.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SlashinginTheAir.atlas; sourceTree = "<group>"; };
 		88261AD9240FCF4100C2DB78 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		88261ADC24113EA400C2DB78 /* GameConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfig.swift; sourceTree = "<group>"; };
+		88261AE02411F2BE00C2DB78 /* BatEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatEnemy.swift; sourceTree = "<group>"; };
+		88261AE42411F9DE00C2DB78 /* bat.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bat.atlas; sourceTree = "<group>"; };
+		88261AE62412811100C2DB78 /* SpawningBat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawningBat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,7 @@
 				88261AB1240E99F200C2DB78 /* Main.storyboard */,
 				88261AA9240E99F200C2DB78 /* GameScene.sks */,
 				88261AAB240E99F200C2DB78 /* Actions.sks */,
+				88261AE42411F9DE00C2DB78 /* bat.atlas */,
 				88261AD6240F461A00C2DB78 /* SlashinginTheAir.atlas */,
 				88261AD1240F3A3300C2DB78 /* JumpLoop.atlas */,
 				88261ACF240F38E300C2DB78 /* Running.atlas */,
@@ -117,6 +124,8 @@
 			children = (
 				88261AC0240E9E5200C2DB78 /* WallBackground.swift */,
 				88261AD9240FCF4100C2DB78 /* Player.swift */,
+				88261AE02411F2BE00C2DB78 /* BatEnemy.swift */,
+				88261AE62412811100C2DB78 /* SpawningBat.swift */,
 			);
 			path = GameElements;
 			sourceTree = "<group>";
@@ -191,6 +200,7 @@
 				88261AB3240E99F200C2DB78 /* Main.storyboard in Resources */,
 				88261AAA240E99F200C2DB78 /* GameScene.sks in Resources */,
 				88261AD2240F3A3400C2DB78 /* JumpLoop.atlas in Resources */,
+				88261AE52411F9DE00C2DB78 /* bat.atlas in Resources */,
 				88261AB5240E99F600C2DB78 /* Assets.xcassets in Resources */,
 				88261AC7240EA11E00C2DB78 /* Wall.sks in Resources */,
 				88261AC8240EA11E00C2DB78 /* Assets.xcassets in Resources */,
@@ -214,8 +224,10 @@
 				88261AA8240E99F200C2DB78 /* AppDelegate.swift in Sources */,
 				88261ADD24113EA400C2DB78 /* GameConfig.swift in Sources */,
 				88261ACC240F129600C2DB78 /* BodyMasks.swift in Sources */,
+				88261AE12411F2BE00C2DB78 /* BatEnemy.swift in Sources */,
 				88261ADA240FCF4100C2DB78 /* Player.swift in Sources */,
 				88261AC1240E9E5200C2DB78 /* WallBackground.swift in Sources */,
+				88261AE72412811100C2DB78 /* SpawningBat.swift in Sources */,
 				88261AC3240E9F5E00C2DB78 /* GameObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

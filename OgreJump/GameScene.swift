@@ -16,6 +16,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lastTimeUpdate: TimeInterval = 0
     var gameVel: Double = 6.0
     var player: Player!
+    var spawnBat: SpawningBat!
+
     var control: Int = 0 // variável para controle da posição do Player
     var jump = false // variável para controle do pulo do Player
     var backgroundScene = SKSpriteNode(imageNamed: "forest4")
@@ -32,7 +34,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         backgroundScene.size.width = backgroundScene.size.width * 1
         backgroundScene.size.height = backgroundScene.size.height * 1
         addChild(backgroundScene)
-//        animatePlayer(direction: 1.0)
+        
+        spawnBat = SpawningBat(node: self)
+        gameObjects.append(spawnBat)
+        
             }
     
     
