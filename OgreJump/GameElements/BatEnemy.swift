@@ -16,11 +16,21 @@ class BatEnemy: SKSpriteNode, GameObject {
     var leftSide: Bool!
     
     func setUp() {
-        let batTexture = SKTexture(imageNamed: "bat0")
-        let batScale = CGFloat(0.8)
-        bat.xScale = batScale
-        bat.yScale = batScale
-        bat.physicsBody = SKPhysicsBody(texture: batTexture, alphaThreshold: 0.8, size: CGSize(width: bat.size.width, height: bat.size.height))
+        let batTexture = SKTexture(imageNamed: "bat4.png")
+        
+        bat.scale(to: CGSize(width: (bat.texture?.size().width)! * 0.8, height: (bat.texture?.size().height)! * 0.8))
+        bat.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 80, height: 20))
+            
+            //SKPhysicsBody(texture: batTexture, alphaThreshold: 0.8, size: CGSize(width: bat.size.width, height: bat.size.height))
+        
+        
+//        bat.physicsBody = SKPhysicsBody(texture: batTexture, alphaThreshold: 0.8, size: CGSize(width: bat.size.width, height: bat.size.height))
+//        let PlayerTexture = SKTextureAtlas(named: "bat")
+//        bat.physicsBody = SKPhysicsBody(texture: PlayerTexture.textureNamed("bat1"), alphaThreshold: 0.8, size: CGSize(width: bat.size.width, height: bat.size.height))
+//        let batScale = CGFloat(0.8)
+//        bat.xScale = batScale
+//        bat.yScale = batScale
+
         if Int.random(in: 0...1) == 0 {
             bat.position = CGPoint(x: GameConfig.xRightPosition, y: CGFloat(1000))
             rightSide = true
@@ -29,6 +39,8 @@ class BatEnemy: SKSpriteNode, GameObject {
             rightSide = false
         }
         bat.physicsBody?.isDynamic = false
+        bat.physicsBody?.categoryBitMask = GameConfig.EnemyCategory
+        bat.physicsBody?.contactTestBitMask = GameConfig.PlayerCategory
     }
     
     func update(deltaTime: TimeInterval, velocity: Double) {
@@ -75,15 +87,12 @@ class BatEnemy: SKSpriteNode, GameObject {
         // funçao para construir o array de texturas e atribuir a textura para o player parado
         var flyFrames: [SKTexture] = []
         let numImagesFly = FlyAnimatedAtlas.textureNames.count
-        print(numImagesFly)
-        print(FlyAnimatedAtlas)
         
         for i in 0...(numImagesFly - 1) {
             let BatTextureName = "bat\(i)"
             flyFrames.append(FlyAnimatedAtlas.textureNamed(BatTextureName))
         }
         BatFlyingFrames = flyFrames
-        print(flyFrames)
         let firstFrameTexture = FlyAnimatedAtlas.textureNamed("bat0")
         bat.texture = firstFrameTexture
         self.setUp()

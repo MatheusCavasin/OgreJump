@@ -22,13 +22,13 @@ class GameViewController: UIViewController {
             if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
-                gameScene = scene as! GameScene
+                gameScene = (scene as! GameScene)
                 // Present the scene
                 view.presentScene(scene)
             }
             
             view.ignoresSiblingOrder = true
-            
+//            view.showsPhysics = true
             view.showsFPS = true
             view.showsNodeCount = true
         }

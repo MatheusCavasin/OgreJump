@@ -11,7 +11,7 @@ import SpriteKit
 class SpawningBat: GameObject {
     
     var batArray: [BatEnemy] = []
-    var timer: TimeInterval = 0
+    var timer: TimeInterval = 1
     var node: SKNode
     var distance = 500.0
     
@@ -25,17 +25,23 @@ class SpawningBat: GameObject {
         
         if timer <= 0 {
             spawn()
-            //calcula o tempo para criar nova pedra, para que a distancia se mantenha a msm
+            //calcula o tempo para criar o novo inimigo para que a distancia se mantenha a msm
             //multiplica a velocidade em pixels/frame por 60 para virar pixels/segundo
             timer = distance/(velocity*60)
         }
         for bat in batArray {
             bat.update(deltaTime: deltaTime, velocity: velocity)
             
-            if bat.bat.position.y <= -650 {
+            if bat.bat.position.x == 2 * GameConfig.xRightPosition || bat.bat.position.x == 2 * GameConfig.xLeftPosition {
                 batArray.remove(at: 0)
                 bat.bat.removeFromParent()
             }
+        }
+    }
+    
+    func destroySpawn() {
+        for bat in batArray {
+            bat.bat.removeFromParent()
         }
     }
     

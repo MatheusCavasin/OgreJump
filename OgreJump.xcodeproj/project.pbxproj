@@ -19,7 +19,6 @@
 		88261AC3240E9F5E00C2DB78 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261AC2240E9F5E00C2DB78 /* GameObject.swift */; };
 		88261AC7240EA11E00C2DB78 /* Wall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 88261AC5240EA11E00C2DB78 /* Wall.sks */; };
 		88261AC8240EA11E00C2DB78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88261AC6240EA11E00C2DB78 /* Assets.xcassets */; };
-		88261ACC240F129600C2DB78 /* BodyMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261ACB240F129600C2DB78 /* BodyMasks.swift */; };
 		88261ACE240F1EBF00C2DB78 /* WalkingPlayer.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 88261ACD240F1EBF00C2DB78 /* WalkingPlayer.atlas */; };
 		88261AD0240F38E300C2DB78 /* Running.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 88261ACF240F38E300C2DB78 /* Running.atlas */; };
 		88261AD2240F3A3400C2DB78 /* JumpLoop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 88261AD1240F3A3300C2DB78 /* JumpLoop.atlas */; };
@@ -29,6 +28,8 @@
 		88261AE12411F2BE00C2DB78 /* BatEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261AE02411F2BE00C2DB78 /* BatEnemy.swift */; };
 		88261AE52411F9DE00C2DB78 /* bat.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 88261AE42411F9DE00C2DB78 /* bat.atlas */; };
 		88261AE72412811100C2DB78 /* SpawningBat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261AE62412811100C2DB78 /* SpawningBat.swift */; };
+		8837C7322415CEA4007BA07A /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8837C7312415CEA4007BA07A /* Obstacle.swift */; };
+		8837C7342415D1D2007BA07A /* SpawningObstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8837C7332415D1D2007BA07A /* SpawningObstacle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +47,6 @@
 		88261AC2240E9F5E00C2DB78 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		88261AC5240EA11E00C2DB78 /* Wall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Wall.sks; sourceTree = "<group>"; };
 		88261AC6240EA11E00C2DB78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		88261ACB240F129600C2DB78 /* BodyMasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMasks.swift; sourceTree = "<group>"; };
 		88261ACD240F1EBF00C2DB78 /* WalkingPlayer.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = WalkingPlayer.atlas; sourceTree = "<group>"; };
 		88261ACF240F38E300C2DB78 /* Running.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Running.atlas; sourceTree = "<group>"; };
 		88261AD1240F3A3300C2DB78 /* JumpLoop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = JumpLoop.atlas; sourceTree = "<group>"; };
@@ -56,6 +56,8 @@
 		88261AE02411F2BE00C2DB78 /* BatEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatEnemy.swift; sourceTree = "<group>"; };
 		88261AE42411F9DE00C2DB78 /* bat.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bat.atlas; sourceTree = "<group>"; };
 		88261AE62412811100C2DB78 /* SpawningBat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawningBat.swift; sourceTree = "<group>"; };
+		8837C7312415CEA4007BA07A /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
+		8837C7332415D1D2007BA07A /* SpawningObstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawningObstacle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +107,6 @@
 				88261AB4240E99F600C2DB78 /* Assets.xcassets */,
 				88261AB6240E99F600C2DB78 /* LaunchScreen.storyboard */,
 				88261AB9240E99F600C2DB78 /* Info.plist */,
-				88261ACB240F129600C2DB78 /* BodyMasks.swift */,
 			);
 			path = OgreJump;
 			sourceTree = "<group>";
@@ -126,6 +127,8 @@
 				88261AD9240FCF4100C2DB78 /* Player.swift */,
 				88261AE02411F2BE00C2DB78 /* BatEnemy.swift */,
 				88261AE62412811100C2DB78 /* SpawningBat.swift */,
+				8837C7312415CEA4007BA07A /* Obstacle.swift */,
+				8837C7332415D1D2007BA07A /* SpawningObstacle.swift */,
 			);
 			path = GameElements;
 			sourceTree = "<group>";
@@ -221,9 +224,10 @@
 			files = (
 				88261AAE240E99F200C2DB78 /* GameScene.swift in Sources */,
 				88261AB0240E99F200C2DB78 /* GameViewController.swift in Sources */,
+				8837C7322415CEA4007BA07A /* Obstacle.swift in Sources */,
 				88261AA8240E99F200C2DB78 /* AppDelegate.swift in Sources */,
 				88261ADD24113EA400C2DB78 /* GameConfig.swift in Sources */,
-				88261ACC240F129600C2DB78 /* BodyMasks.swift in Sources */,
+				8837C7342415D1D2007BA07A /* SpawningObstacle.swift in Sources */,
 				88261AE12411F2BE00C2DB78 /* BatEnemy.swift in Sources */,
 				88261ADA240FCF4100C2DB78 /* Player.swift in Sources */,
 				88261AC1240E9E5200C2DB78 /* WallBackground.swift in Sources */,

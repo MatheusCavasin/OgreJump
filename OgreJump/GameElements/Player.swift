@@ -11,17 +11,36 @@ import SpriteKit
 
 class Player: SKSpriteNode {
     
-    var control: Int = 0 // variável para controle da posição do Player
+    var control: Int! // variável para controle da posição do Player
     var jump = false // variável para controle do pulo do Player
     
     func setUp() {
-        self.position = CGPoint(x: CGFloat(180), y: CGFloat(-300))
-        self.zRotation = CGFloat(70)
+        
+//        let CanoingTexture = SKTexture(imageNamed: "0_Ogre_Idle_000.png")
+//
+//        self.scale(to: CGSize(width: (self.texture?.size().width)! * 0.2, height: (self.texture?.size().height)! * 0.2))
+//        self.physicsBody = SKPhysicsBody(texture: CanoingTexture, alphaThreshold: 0.8, size: CGSize(width: self.size.width + 20, height: self.size.height + 20))
+        
+//        let PlayerTexture = SKTexture(imageNamed: "0_Ogre_Idle_000.png")
+//        self.scale(to: CGSize(width: (self.texture?.size().width)! * 0.2, height: (self.texture?.size().height)! * 0.2))
+//        self.physicsBody = SKPhysicsBody(texture: PlayerTexture, alphaThreshold: 0.8, size: CGSize(width: self.size.width, height: self.size.height))
+        
+        self.physicsBody = SKPhysicsBody(circleOfRadius: 30)
+        
+        self.position = CGPoint(x: CGFloat(GameConfig.xRightPosition), y: CGFloat(GameConfig.yPosition))
+        self.zRotation = CGFloat(GameConfig.zRightRotation)
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody!.isDynamic = true
+        self.physicsBody!.allowsRotation = true
+        self.physicsBody?.pinned = false
+        self.physicsBody?.categoryBitMask = GameConfig.PlayerCategory
+        self.physicsBody?.contactTestBitMask = GameConfig.EnemyCategory | GameConfig.ObstacleCategory
+        self.control = 0
         
     }
     
     
-
+    
     
     
     func jumpPlayer() {
@@ -75,19 +94,17 @@ class Player: SKSpriteNode {
         var walkFrames: [SKTexture] = []
         var jumpFrames: [SKTexture] = []
         let numImagesWalk = WalkAnimatedAtlas.textureNames.count
-//        print(JumpAnimatedAtlas)
-        
         for i in 0...(numImagesWalk - 1) {
             if i < 10 {
                 let PlayerTextureName = "0_Ogre_Walking_00\(i)"
                 walkFrames.append(WalkAnimatedAtlas.textureNamed(PlayerTextureName))
-                if i < 10 {
+                if i < 11 {
                     let PlayerTextureName = "0_Ogre_Slashing%20in%20The%20Air_00\(i)"
                     jumpFrames.append(JumpAnimatedAtlas.textureNamed(PlayerTextureName))
-//                    print(jumpFrames)
                 }
+                
             } else {
-                var PlayerTextureName = "0_Ogre_Walking_0\(i)"
+                let PlayerTextureName = "0_Ogre_Walking_0\(i)"
                 walkFrames.append(WalkAnimatedAtlas.textureNamed(PlayerTextureName))
                 if i == 11 {
                     let PlayerTextureName = "0_Ogre_Slashing%20in%20The%20Air_0\(i)"

@@ -21,11 +21,13 @@ class WallBackground: GameObject {
     }
     
     func update(deltaTime: TimeInterval, velocity: Double) {
-        let velY = CGFloat(5.0) //CGFloat(velocity) usar o velocity para velocidade varável do background
-        node.position.y -= velY
+//        let velY = CGFloat(5.0) //CGFloat(velocity) usar o velocity para velocidade varável do background
+        node.position.y -= GameConfig.backgroundSpeed
         
         if node.position.y < wallTileSize {
             node.position.y += wallTileSize
+        } else if abs(GameConfig.backgroundSpeed)/GameConfig.backgroundSpeed < 0 && node.position.y > wallTileSize {
+            node.position.y -= wallTileSize
         }
         
     }
