@@ -23,6 +23,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var distance: Double = 0.0
     var finalDistance: Double = 0.0
     var hasDied = false
+    var ogreJump: SKSpriteNode!
+    var tapToPlay: SKSpriteNode!
+//    let highScore = GameConfig.defaults.double(forKey: "HighScore")
     
     
     var control: Int = 0 // variável para controle da posição do Player
@@ -37,6 +40,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
+        
+        /*ogreImageView.image = ogreJump
+        ogreImageView.frame = CGRect(x: self.frame.midX + 20.0, y: self.frame.midX + 200.0, width: self.ogreJump!.size.width, height: self.ogreJump!.size.height)
+        view.addSubview(ogreImageView)
+        tapImageView.image = tapToPlay
+        tapImageView.frame = CGRect(x: self.frame.midX + 100.0, y: self.frame.midX + 500.0, width: self.tapToPlay!.size.width, height: self.tapToPlay!.size.height)
+        view.addSubview(tapImageView) */
         
         wallBackgroundNode = childNode(withName: "wallBackgroundNode")
         let wallBackground = WallBackground(node: wallBackgroundNode)
@@ -78,24 +88,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         backgroundScene5.size.height = backgroundScene5.size.height * 1
         addChild(backgroundScene5)
         
-        currentDistance = SKLabelNode(fontNamed: "Chalkduster")
+        currentDistance = SKLabelNode(fontNamed: "Reality Check DEMO")
         currentDistance.fontColor = .black
         currentDistance.horizontalAlignmentMode = .right
-        currentDistance.position = GameConfig.scorePosition
+        currentDistance.position = GameConfig.labelScorePosition
         currentDistance.zPosition = 4
+        currentDistance.numberOfLines = 3
         addChild(currentDistance)
+        currentDistance.text = String(format: "Best Score: %.1f m \n\nLast Score: %.1f m", GameConfig.defaults.double(forKey: "HighScore"), GameConfig.defaults.double(forKey: "LastScore"))
         
         let flashLabelIn = SKAction.fadeIn(withDuration: 1.5)
         let flashLabelOut = SKAction.fadeOut(withDuration: 0.2)
         let sequence = SKAction.sequence([flashLabelIn, flashLabelOut])
-        tapPlay = SKLabelNode(fontNamed: "Chalkduster")
+        
+        /*tapPlay = SKLabelNode(fontNamed: "Chalkduster")
         tapPlay.fontColor = .black
         tapPlay.horizontalAlignmentMode = .right
         tapPlay.text = "Tap to Play"
         tapPlay.position = CGPoint(x: 100, y: 0)
         tapPlay.zPosition = 4
         tapPlay.run(SKAction.repeatForever(sequence))
-        addChild(tapPlay)
+        addChild(tapPlay)*/
+        
+        ogreJump = SKSpriteNode(imageNamed: "OgreJump")
+        ogreJump.position = CGPoint(x: 0, y: 50)
+        ogreJump.size = CGSize(width: ogreJump.size.width * 1.5, height: ogreJump.size.height * 1.5)
+        addChild(ogreJump)
+        
+        tapToPlay = SKSpriteNode(imageNamed: "tapToPlay")
+        tapToPlay.position = CGPoint(x: 0, y: -150)
+        tapToPlay.run(SKAction.repeatForever(sequence))
+        addChild(tapToPlay)
         
         
         spawnBat = SpawningBat(node: self)
@@ -116,15 +139,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         if !hasDied {
-            if abs((firstBody.node?.position.x.rounded(.up))!) >= abs(GameConfig.xRightPosition){
+            if abs(firstBody.node!.position.x).rounded(.up) >= abs(GameConfig.xRightPosition){
                 //morreu
-                secondBody.node!.removeFromParent()
+//                secondBody.node!.removeFromParent()
                 gameVel = -GameConfig.gameSpeed
                 GameConfig.backgroundSpeed = -GameConfig.backgroundSpeed
                 player.removeAllActions()
                 player.texture = SKTexture(imageNamed: "0_Ogre_Dying_009")
                 finalDistance = distance
+                if distance > GameConfig.defaults.double(forKey: "HighScore") {
+                    GameConfig.defaults.set(distance, forKey: "HighScore")
+                }
                 hasDied = true
+                player.deadPlayer()
             } else if secondBody.categoryBitMask == GameConfig.ObstacleCategory {
                 //morreu
                 gameVel = -GameConfig.gameSpeed
@@ -132,7 +159,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 player.removeAllActions()
                 player.texture = SKTexture(imageNamed: "0_Ogre_Dying_009")
                 finalDistance = distance
+                if distance > GameConfig.defaults.double(forKey: "HighScore") {
+                    GameConfig.defaults.set(distance, forKey: "HighScore")
+                }
                 hasDied = true
+                player.deadPlayer()
             } else {
                 //            contact.bodyB.node?.removeFromParent()
                 secondBody.node!.removeFromParent()
@@ -144,12 +175,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func touchDown(atPoint pos : CGPoint) {
-        if !tapPlay.isHidden {
+        if !tapToPlay.isHidden {
             //            tapPlay.removeAllActions()
-            tapPlay.isHidden = true
+            tapToPlay.isHidden = true
+            ogreJump.isHidden = true
             hasDied = false
             gameVel = GameConfig.gameSpeed
             distance = 0
+            currentDistance.position = GameConfig.runningScorePosition
         } else if !hasDied{
             player.jumpPlayer()
         }
@@ -189,8 +222,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let deltaTime = currentTime - lastTimeUpdate
         lastTimeUpdate = currentTime
         
-        if tapPlay.isHidden {
-            currentDistance.text = String(format: "%.1f m", distance)
+        if tapToPlay.isHidden {
             for gameObject in gameObjects {
                 gameObject.update(deltaTime: deltaTime, velocity: gameVel)
             }
@@ -200,14 +232,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 gameVel += deltaTime/8
                 distance += gameVel/60
             }
-            if hasDied && finalDistance - distance > 5 {
-                tapPlay.isHidden = false
+            if hasDied && finalDistance - distance > 8 {
+                tapToPlay.isHidden = false
+                ogreJump.isHidden = false
                 player.setUp()
                 player.animatePlayer(direction: GameConfig.right)
                 GameConfig.backgroundSpeed = GameConfig.backgroundSpeed * -1
                 spawnBat.destroySpawn()
                 spawnObstacle.destroySpawn()
-                currentDistance.text = String(format: "%.1f m", finalDistance)
+                GameConfig.defaults.set(finalDistance, forKey: "LastScore")
+                currentDistance.text = String(format: "Best Score: %.1f m \n\nLast Score: %.1f m", GameConfig.defaults.double(forKey: "HighScore"), GameConfig.defaults.double(forKey: "LastScore"))
+                currentDistance.position = GameConfig.labelScorePosition
+            } else if !hasDied {
+                currentDistance.text = String(format: "%.1f m", distance)
             }
             
         } else {

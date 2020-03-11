@@ -30,6 +30,9 @@
 		88261AE72412811100C2DB78 /* SpawningBat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88261AE62412811100C2DB78 /* SpawningBat.swift */; };
 		8837C7322415CEA4007BA07A /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8837C7312415CEA4007BA07A /* Obstacle.swift */; };
 		8837C7342415D1D2007BA07A /* SpawningObstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8837C7332415D1D2007BA07A /* SpawningObstacle.swift */; };
+		8837C73A24185DC6007BA07A /* obstaclePlant.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 8837C73924185DC6007BA07A /* obstaclePlant.atlas */; };
+		8837C73C241868F0007BA07A /* Dying.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 8837C73B241868F0007BA07A /* Dying.atlas */; };
+		8837C74324187450007BA07A /* Reality Check DEMO.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8837C7402418744F007BA07A /* Reality Check DEMO.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,9 @@
 		88261AE62412811100C2DB78 /* SpawningBat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawningBat.swift; sourceTree = "<group>"; };
 		8837C7312415CEA4007BA07A /* Obstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
 		8837C7332415D1D2007BA07A /* SpawningObstacle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawningObstacle.swift; sourceTree = "<group>"; };
+		8837C73924185DC6007BA07A /* obstaclePlant.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = obstaclePlant.atlas; sourceTree = "<group>"; };
+		8837C73B241868F0007BA07A /* Dying.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Dying.atlas; sourceTree = "<group>"; };
+		8837C7402418744F007BA07A /* Reality Check DEMO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Reality Check DEMO.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 				88261AB1240E99F200C2DB78 /* Main.storyboard */,
 				88261AA9240E99F200C2DB78 /* GameScene.sks */,
 				88261AAB240E99F200C2DB78 /* Actions.sks */,
+				8837C73D2418744F007BA07A /* reality_check_Font */,
+				8837C73B241868F0007BA07A /* Dying.atlas */,
+				8837C73924185DC6007BA07A /* obstaclePlant.atlas */,
 				88261AE42411F9DE00C2DB78 /* bat.atlas */,
 				88261AD6240F461A00C2DB78 /* SlashinginTheAir.atlas */,
 				88261AD1240F3A3300C2DB78 /* JumpLoop.atlas */,
@@ -140,6 +149,14 @@
 				88261ADC24113EA400C2DB78 /* GameConfig.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8837C73D2418744F007BA07A /* reality_check_Font */ = {
+			isa = PBXGroup;
+			children = (
+				8837C7402418744F007BA07A /* Reality Check DEMO.otf */,
+			);
+			path = reality_check_Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,11 +219,14 @@
 			files = (
 				88261AB3240E99F200C2DB78 /* Main.storyboard in Resources */,
 				88261AAA240E99F200C2DB78 /* GameScene.sks in Resources */,
+				8837C74324187450007BA07A /* Reality Check DEMO.otf in Resources */,
 				88261AD2240F3A3400C2DB78 /* JumpLoop.atlas in Resources */,
+				8837C73C241868F0007BA07A /* Dying.atlas in Resources */,
 				88261AE52411F9DE00C2DB78 /* bat.atlas in Resources */,
 				88261AB5240E99F600C2DB78 /* Assets.xcassets in Resources */,
 				88261AC7240EA11E00C2DB78 /* Wall.sks in Resources */,
 				88261AC8240EA11E00C2DB78 /* Assets.xcassets in Resources */,
+				8837C73A24185DC6007BA07A /* obstaclePlant.atlas in Resources */,
 				88261ACE240F1EBF00C2DB78 /* WalkingPlayer.atlas in Resources */,
 				88261AB8240E99F600C2DB78 /* LaunchScreen.storyboard in Resources */,
 				88261AD7240F461A00C2DB78 /* SlashinginTheAir.atlas in Resources */,

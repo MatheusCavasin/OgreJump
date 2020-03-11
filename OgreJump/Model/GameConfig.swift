@@ -10,14 +10,17 @@ import Foundation
 import SpriteKit
 
 class GameConfig {
+    static let defaults = UserDefaults.standard
     static let gameSpeed: Double = 3.0
     static var backgroundSpeed: CGFloat = 5.0
-    static let scorePosition = CGPoint(x: 30, y: 550)
+    static let labelScorePosition = CGPoint(x: 170, y: 450)
+    static let runningScorePosition = CGPoint(x: 50, y: 550)
     static let backgroundPosition = CGPoint(x: 1, y: 1)
     static let left = CGFloat(-1.0)
     static let right = CGFloat(1.0)
     static let xRightPosition = CGFloat(180)
     static let xLeftPosition = CGFloat(-180)
+    static let xDiedPosition = CGFloat(0)
     static let yPosition = CGFloat(-300)
     static let yUpPosition = CGFloat(-200)
     static let zRightRotation = CGFloat(70)
@@ -25,6 +28,8 @@ class GameConfig {
     static let zStandRotation = CGFloat(0)
     static let zObstacleRight = CGFloat(70)
     static let zObstacleLeft = CGFloat(-70)
+    static let plantRight = CGFloat(-1.0)
+    static let plantLeft = CGFloat(1.0)
     
     static let PlayerCategory: UInt32 = 0x1 << 0
     static let EnemyCategory: UInt32 = 0x1 << 1

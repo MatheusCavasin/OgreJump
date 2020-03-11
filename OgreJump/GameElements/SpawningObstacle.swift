@@ -30,24 +30,25 @@ class SpawningObstacle: GameObject {
         }
         for obstacle in obstacleArray {
             obstacle.update(deltaTime: deltaTime, velocity: velocity)
-            if obstacle.position.y == -640 || GameConfig.backgroundSpeed < 0{
+            if obstacle.position.y == -640{
                 obstacleArray.remove(at: 0)
-                obstacle.greenCrystal.removeFromParent()
+                obstacle.carnivorousPlant.removeFromParent()
             }
         }
     }
     
     func destroySpawn() {
         for obstacle in obstacleArray {
-            obstacle.greenCrystal.removeFromParent()
+            obstacle.carnivorousPlant.removeFromParent()
         }
     }
     
     func spawn() {
         let newObstacle = Obstacle()
-        newObstacle.setUp()
+        newObstacle.buildPlantTexture()
+        newObstacle.animatePlayer(direction: 1.0)
         obstacleArray.append(newObstacle)
-        node.addChild(newObstacle.greenCrystal)
+        node.addChild(newObstacle.carnivorousPlant)
     }
     
 }
